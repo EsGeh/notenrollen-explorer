@@ -49,15 +49,15 @@ If you changed the Dockerfile (e.g. added dependencies), you might want to updat
 
 1. (re)build image:
 
-	$ docker image build -t notenrollenexplorer_web .
+		$ docker image build -t notenrollenexplorer_web .
 
 2. run database:
 
-	$ docker container run -d --name "db" postgres
+		$ docker container run -d --name "db" postgres
 
 3. run the web server inside a container:
 
-	$ docker container run -p 8000:8000 --link db:db -d notenrollenexplorer_web python manage.py runserver 0.0.0.0:8000
+		$ docker container run -p 8000:8000 --link db:db -d notenrollenexplorer_web python manage.py runserver 0.0.0.0:8000
 
 ## XML processing
 
