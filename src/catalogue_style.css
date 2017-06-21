@@ -1,0 +1,42 @@
+body {
+    background-color: #F2EFFC;
+}
+
+table {
+/*    border: 1px solid black; */
+    width: 100%;
+}
+
+table img{
+      display:block; height:50%; width:100%;
+}
+
+img {
+  margin:-1px;
+  border: -1px;
+}
+
+th {
+    height: 25px;
+    background-color: #6f0006;
+    color: white;
+}
+
+tr {
+    height: 29px;
+}
+
+th, td {
+    border-bottom: 1px solid #e8e6e3;
+}
+
+.descriptors {
+    font-weight: bold;
+    width: 15%;
+}
+
+.values {
+ width: 50%;
+}
+
+tr:hover {background-color: #e2e4e7}
