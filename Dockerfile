@@ -4,8 +4,10 @@ ENV PYTHONUNBUFFERED 1
 
 # define a variable holding the path where to install the software inside the container:
 ENV INSTALL_DIR /notenrollen_server
+ENV RES_DIR /res
 
 RUN mkdir "$INSTALL_DIR"
+RUN mkdir "$RES_DIR"
 WORKDIR "$INSTALL_DIR"
 
 # install pyhton dependencies via "pip" inside the container
