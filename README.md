@@ -9,6 +9,16 @@ a web application to explore data about piano rolls for player pianos collected 
 - install docker
 - install docker-compose
 
+### fetch xml resources
+
+1. download everything from 'http://136.243.4.67/index.php/s/9jj8t9uZiPqjXzd' and unzip to 'res/Notenrollen/lido'
+
+2. run 
+
+		$ ./scripts/gen_xml_index.sh
+
+	This will generate the file 'res/index.xml'.
+
 ## how to run the server
 
 	$ docker-compose up
