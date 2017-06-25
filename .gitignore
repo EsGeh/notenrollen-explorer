@@ -1,6 +1,9 @@
 # vim backup files
 .*.swp
 
+# res directory
+/res
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
