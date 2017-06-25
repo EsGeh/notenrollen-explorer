@@ -54,7 +54,7 @@ ROOT_URLCONF = 'notenrollen.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['notenrollen/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

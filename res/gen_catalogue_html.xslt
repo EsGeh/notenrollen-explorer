@@ -4,6 +4,9 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:lido="http://www.lido-schema.org"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<xsl:param name="page_count" select="10" />
+	<xsl:param name="page_index" select="0" />
   <xsl:template match="/">
     <html>
       <head>
@@ -11,7 +14,7 @@
       </head>
       <body>
         <h2>Notenrollen</h2>
-        <xsl:for-each select="/list/entry">
+        <xsl:for-each select="/list/entry[(position() &gt; $page_count*$page_index) and position() &lt;= $page_count*($page_index+1)]">
           <!--document loop-->
           <xsl:for-each select="document(@name)/lido:lidoWrap/lido:lido">
             <!--record loop-->
