@@ -19,6 +19,12 @@ a web application to explore data about piano rolls for player pianos collected 
 
 	This will generate the file 'res/index.xml'.
 
+### fetch image files
+
+run
+
+	$ ./scripts/getpics.py
+
 ## how to run the server
 
 	$ docker-compose up
