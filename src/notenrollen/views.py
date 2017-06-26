@@ -1,13 +1,11 @@
-from .settings import BASE_DIR
+from .settings import RES_BASE_DIR, XSLT_DIR
 from os.path import join
 from django.http import HttpResponse
 from django.shortcuts import render
 # from django.template.loader import render_to_string
 
 
-RES_BASE_DIR = "/res"
-
-xslt_path = join(RES_BASE_DIR, "gen_catalogue_html.xslt")
+xslt_path = join(XSLT_DIR, "gen_catalogue_html.xslt")
 cataloge_index_path = join(RES_BASE_DIR, "index.xml")
 
 def gen_catalogue(request, **args):

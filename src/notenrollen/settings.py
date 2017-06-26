@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+from os.path import join
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -119,4 +120,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+STATICFILES_DIRS = [
+        join(BASE_DIR, "static"),
+]
+
 STATIC_URL = '/static/'
+
+
+### GLOBAL VARIABLES:
+
+# contains resources, the application specific data:
+RES_BASE_DIR = "/res"
+
+# contains the xslt to generate html from the xml database:
+XSLT_DIR = join(BASE_DIR, "notenrollen", "xslt")
