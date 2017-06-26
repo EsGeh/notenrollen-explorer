@@ -16,9 +16,15 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from . import views
+from django.shortcuts import redirect
+
+def index_view(request, **args):
+    return redirect(views.gen_catalogue, page_count=50, page_index=0)
 
 urlpatterns = [
     url(r'^catalogue/(?P<page_count>[0-9]{1,3})/(?P<page_index>[0-9]{1,4})$', views.gen_catalogue, name="catalogue"),
+
+    url(r'^$', index_view, name="catalogue"),
 
     # disable admin site:
     # url(r'^admin/', admin.site.urls),
