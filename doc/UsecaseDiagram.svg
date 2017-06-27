@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg height="372" version="1.1" width="655" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#ffffff" height="344" stroke="#ffffff" stroke-width="1" width="616" x="25" y="14"/>
+<rect fill="none" height="344" stroke="#000000" stroke-width="1" width="616" x="25" y="14"/>
+<text font-family="Dialog" font-size="12" x="34" y="204">
+User</text>
+<ellipse cx="48" cy="153" fill="#000000" rx="8.0" ry="7.5" stroke="#000000" stroke-width="1"/>
+<ellipse cx="48" cy="153" fill="#ffffff" rx="7.0" ry="6.5" stroke="#ffffff" stroke-width="1"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="48" x2="48" y1="161" y2="176"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="38" x2="58" y1="166" y2="166"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="48" x2="43" y1="176" y2="191"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="48" x2="53" y1="176" y2="191"/>
+<rect fill="#ffffff" height="248" stroke="#ffffff" stroke-width="1" width="400" x="139" y="56"/>
+<rect fill="none" height="248" stroke="#000000" stroke-width="1" width="400" x="139" y="56"/>
+<rect fill="none" height="16" stroke="#ffffff" stroke-width="1" width="142" x="243" y="64"/>
+<text font-family="Dialog" font-size="12" font-weight="bold" x="244" y="77">
+Notenrollen Explorer</text>
+<ellipse cx="215" cy="127" fill="#000000" rx="68.0" ry="23.0" stroke="#000000" stroke-width="1"/>
+<ellipse cx="215" cy="127" fill="#ffffff" rx="67.0" ry="22.0" stroke="#ffffff" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="161" y="128">
+Browse Catalogue</text>
+<ellipse cx="215" cy="208" fill="#000000" rx="68.0" ry="24.0" stroke="#000000" stroke-width="1"/>
+<ellipse cx="215" cy="208" fill="#ffffff" rx="67.0" ry="23.0" stroke="#ffffff" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="168" y="209">
+Search Records</text>
+<polyline fill="none" points="57,153 153,137" stroke="#000000" stroke-width="1"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="142" x2="153" y1="145" y2="137"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="140" x2="153" y1="132" y2="137"/>
+<polyline fill="none" points="58,166 160,193" stroke="#000000" stroke-width="1"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="146" x2="160" y1="196" y2="193"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="150" x2="160" y1="183" y2="193"/>
+<ellipse cx="440" cy="248" fill="#000000" rx="69.0" ry="24.0" stroke="#000000" stroke-width="1"/>
+<ellipse cx="440" cy="248" fill="#ffffff" rx="68.0" ry="23.0" stroke="#ffffff" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="385" y="249">
+Notenrollen Player</text>
+<ellipse cx="397" cy="167" fill="#000000" rx="66.0" ry="23.0" stroke="#000000" stroke-width="1"/>
+<ellipse cx="397" cy="167" fill="#ffffff" rx="65.0" ry="22.0" stroke="#ffffff" stroke-width="1"/>
+<text font-family="Dialog" font-size="12" x="365" y="168">
+get results</text>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="427" x2="425" y1="224" y2="220"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="423" x2="420" y1="216" y2="211"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="418" x2="415" y1="207" y2="202"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="413" x2="410" y1="198" y2="193"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="419" x2="408" y1="196" y2="189"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="407" x2="408" y1="202" y2="189"/>
+<text font-family="Dialog" font-size="12" x="429" y="211">
+&lt;&lt;extend&gt;&gt;</text>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="272" x2="276" y1="139" y2="140"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="281" x2="286" y1="141" y2="142"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="291" x2="296" y1="143" y2="144"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="301" x2="306" y1="145" y2="146"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="311" x2="316" y1="147" y2="148"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="321" x2="326" y1="149" y2="150"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="331" x2="336" y1="151" y2="152"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="327" x2="341" y1="158" y2="154"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="330" x2="341" y1="144" y2="154"/>
+<text font-family="Dialog" font-size="12" x="289" y="138">
+&lt;&lt;include&gt;&gt;</text>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="271" x2="275" y1="194" y2="193"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="280" x2="285" y1="192" y2="191"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="290" x2="295" y1="190" y2="189"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="300" x2="305" y1="188" y2="187"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="310" x2="315" y1="186" y2="185"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="320" x2="325" y1="184" y2="183"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="330" x2="335" y1="182" y2="181"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="329" x2="340" y1="188" y2="179"/>
+<line fill="#000000" stroke="#000000" stroke-width="1" x1="326" x2="340" y1="174" y2="179"/>
+<text font-family="Dialog" font-size="12" x="291" y="208">
+&lt;&lt;include&gt;&gt;</text>
+</svg>
