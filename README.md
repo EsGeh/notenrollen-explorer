@@ -69,6 +69,16 @@ If you changed the Dockerfile (e.g. added dependencies), you might want to updat
 
 		$ docker container run -p 8000:8000 --link db:db -d notenrollenexplorer_web python manage.py runserver 0.0.0.0:8000
 
+
+##BaseX documentation
+
+general:
+http://docs.basex.org/wiki/Commands
+
+python api:
+https://pypi.python.org/pypi/BaseXClient/8.4.4
+
+
 ## XML processing
 
 - single object files merged into 00index.xml for easier processing, yet needs to be updated to include all files (only few for testing purposes as of now)
