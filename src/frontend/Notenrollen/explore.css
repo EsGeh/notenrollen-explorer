@@ -1,0 +1,16 @@
+body, html {
+	background-color: #ff4500;
+}
+
+.box {
+	
+	background-color: blue;
+	
+	position: relative;
+	left: 10%;
+	top: 10%;
+	width: 80%;
+	height: 80%;
+	border: 3px;
+	
+}
