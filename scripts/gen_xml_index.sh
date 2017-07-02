@@ -1,19 +1,15 @@
 #!/bin/bash
 
+OUTPUT_FILE=res/all_objects.xml
 
-OUTPUT_FILE=res/index.xml
-
-cd res
-
-XML_FILES=$(find Notenrollen -name '*.xml')
-
-cd ..
+XML_FILES=$(find res/Notenrollen/lido -name '*.xml')
 
 > $OUTPUT_FILE
 
-echo '<?xml-stylesheet type="text/xsl"?>' >> $OUTPUT_FILE
-echo '<list>' >> $OUTPUT_FILE
+echo '<?xml version="1.0"?>' >> $OUTPUT_FILE
+
+echo '<lido:lidoWrap xmlns:lido="http://www.lido-schema.org" xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.lido-schema.org http://www.lido-schema.org/schema/v1.0/lido-v1.0.xsd">' >> $OUTPUT_FILE
 for f in $XML_FILES; do
-  echo "<entry name =\"$f\"/>" >> $OUTPUT_FILE
+	cat "$f" | xmllint --format - | head -n -1 | tail -n +3 >> $OUTPUT_FILE
 done
-echo '</list>' >> $OUTPUT_FILE
+echo '</lido:lidoWrap>' >> $OUTPUT_FILE

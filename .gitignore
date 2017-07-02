@@ -4,6 +4,9 @@
 # res directory
 /res
 
+# local basex data
+/basexdata
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

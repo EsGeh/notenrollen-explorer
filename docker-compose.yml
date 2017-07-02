@@ -1,6 +1,11 @@
 version: '3'
 
 services:
+  basex:
+    image: basex/basexhttp:latest
+    volumes:
+      - ./res:/res
+      - ./basexdata:/srv/BaseXData
   db:
     image: postgres
   web:
