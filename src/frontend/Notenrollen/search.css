@@ -10,14 +10,13 @@ body, html {
 #box {
 	
 	position: absolute;
-	left: 0%;
-	width: 100%;
-	top: 0%;
-	height: 100%;
 	
 	background-color: rgba(0, 0, 0, 0.7);
 	
-	font-size: 12px;
+	min-height: 100%;
+	min-width: 100%;
+  	
+	font-size: 18px;
 	color: #ffdead;
 	
 }
@@ -25,9 +24,13 @@ body, html {
 #box input {
 	
 	background-color: rgba(0, 0, 0, 0);
-	
 	color: #ffdead;
 	
+}
+
+.table-hover tbody tr:hover {
+	
+	background-color: green;
 	
 }
 

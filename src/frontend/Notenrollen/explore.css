@@ -1,16 +1,138 @@
 body, html {
-	background-color: #ff4500;
+	background: url('images/piano-instrument-music-keys-159420.jpeg') no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
 }
 
-.box {
+#box {
 	
-	background-color: blue;
+	position: absolute;
+	left: 0%;
+	width: 100%;
+	top: 0%;
+	height: 100%;
+	
+	background-color: rgba(0, 0, 0, 0.7);
+	
+	font-size: 12px;
+	color: #ffdead;
+	
+}
+
+.smallCarousel {
+	
+	position: absolute;
+	
+	left: 5%;
+	width: 40%;
+	
+	top: 10%;
+	height: 70%;
+	
+}
+
+.infobox {
+	
+	position: absolute;
+	
+	left: 50%;
+	width: 45%;
+	
+	top: 10%;
+	height: 70%;
+	
+	font-size: 16px;
+	
+}
+
+.infobox_title {
 	
 	position: relative;
-	left: 10%;
-	top: 10%;
-	width: 80%;
-	height: 80%;
-	border: 3px;
+	left: 0%;
+	width: 100%;
+	
+	top: 0%;
+	height: 15%;
+	
+	color: red;
+	
+}
+
+.infobox_type_instrument {
+	
+	position: absolute;
+	left: 0%;
+	width: 100%;
+	
+	top: 15%;
+	height: 15%;
+	
+}
+
+.infobox_type {
+	
+	position: absolute;
+	left: 0%;
+	width: 50%;
+	
+}
+
+.infobox_instrument {
+	
+	position: absolute;
+	left: 50%;
+	width: 50%;
+	
+}
+
+.infobox_description {
+	
+	position: absolute;
+	left: 0%;
+	width: 100%;
+	
+	top: 35%;
+	height: 25%;
+	
+}
+
+.infobox_hersteller {
+	
+	position: absolute;
+	left: 0%;
+	width: 100%;
+	
+	top: 60%;
+	height: 20%;
+	
+}
+
+.infobox_komponist_interpret {
+	
+	position: absolute;
+	left: 0%;
+	width: 100%;
+	
+	top: 80%;
+	height: 20%;
+	
+	
+}
+
+.infobox_komponist {
+	
+	position: absolute;
+	left: 0%;
+	width: 50%;
+	
+}
+
+.infobox_interpret {
+	
+	position: absolute;
+	left: 50%;
+	width: 50%;
 	
 }
