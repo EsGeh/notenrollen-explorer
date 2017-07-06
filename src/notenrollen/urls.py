@@ -18,13 +18,20 @@ from django.contrib import admin
 from . import views
 from django.shortcuts import redirect
 
+'''
 def index_view(request, **args):
     return redirect(views.gen_catalogue, page_count=50, page_index=0)
+'''
 
 urlpatterns = [
+    url(r'^$', views.index_page, name="index"),
+    url(r'^explore$', views.explore, name="explore"),
+    url(r'^search$', views.search, name="search"),
+    url(r'^quiz$', views.quiz, name="quiz"),
+
     url(r'^catalogue/(?P<page_count>[0-9]{1,3})/(?P<page_index>[0-9]{1,4})$', views.gen_catalogue, name="catalogue"),
 
-    url(r'^$', index_view, name="catalogue"),
+    # url(r'^$', index_view, name="catalogue"),
 
     # disable admin site:
     # url(r'^admin/', admin.site.urls),

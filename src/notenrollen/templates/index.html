@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="{% static "index.css" %} "/>
+</head>
+<body>
+
+	
+	<div id="title" class="title">
+		Notenrollen 
+	</div>
+	
+
+	<div id="menubox" class="menubox">
+		<div id="menu" class="menu">
+				<a href="{% url "explore" %}" id="explore">Entdecken</a>
+				<a href="{% url "search" %}" id="search">Durchsuchen</a>
+				<!-- <a href="player.html"" id="player">Player</a> -->
+				<a href="{% url "quiz" %}" id="quiz">Quiz</a>
+  		</div>
+	</div> 
+
+</body>
+</html>

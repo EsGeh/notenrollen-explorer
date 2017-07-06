@@ -5,7 +5,12 @@
 	var ADDRESS = 'http://localhost:8000/';
 	
 	var app = angular.module('notenroller', []);
-	
+
+	app.config(function($interpolateProvider) {
+		$interpolateProvider.startSymbol('{[{');
+		$interpolateProvider.endSymbol('}]}');
+	});	
+
 	app.controller('PageController', ['$http', function($http) {
 		
 //		this.keys = Object.keys(this.notenrollen);

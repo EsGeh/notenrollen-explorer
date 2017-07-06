@@ -12,6 +12,22 @@ basex_uri = "http://basex:8984"
 # base64( <user>:<passwd> ) :
 login_data = "YWRtaW46YWRtaW4="
 
+def index_page(request, **args):
+    context = {}
+    return render(request, "index.html", context )
+
+def explore(request, **args):
+    context = {}
+    return render(request, "explore.html", context )
+
+def search(request, **args):
+    context = {}
+    return render(request, "search.html", context )
+
+def quiz(request, **args):
+    context = {}
+    return render(request, "quiz.html", context )
+
 def gen_catalogue(request, **args):
     from lxml import etree
     import requests as httplib
@@ -21,7 +37,6 @@ def gen_catalogue(request, **args):
     headers={"Authorization": "Basic YWRtaW46YWRtaW4=", "request": "/" }
     response = httplib.get(url=url, headers=headers)
     source_xml = etree.XML( response.text )
-    # raise( Exception(source_xml ) )
 
     # source_xml = etree.parse(cataloge_index_path)
     catalog_html = transformation(source_xml, **args)

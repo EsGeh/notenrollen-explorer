@@ -1,6 +1,6 @@
 /* Set height to 100% for body and html to enable the background image to cover the whole page: */
 body, html {
-	background: url('images/piano-instrument-music-keys-159420.jpeg') no-repeat center center fixed; 
+	background: url('static/images/piano-instrument-music-keys-159420.jpeg') no-repeat center center fixed; 
   	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
