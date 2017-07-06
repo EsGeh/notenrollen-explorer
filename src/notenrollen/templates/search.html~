@@ -53,7 +53,7 @@
 	<script type="text/javascript" src="{% static "js/angular/angular.js" %}"></script>
 	<script type="text/javascript" src="{% static "js/app.js" %}"></script>
 	<script type="text/javascript" src="{% static "js/xml2json.js" %}"></script>
-	<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "js/bootstrap.min.js" %"></script>
 </footer>
 
 </html>

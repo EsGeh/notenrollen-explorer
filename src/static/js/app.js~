@@ -42,13 +42,13 @@
         $http.get(ADDRESS + "search_database",
                 {
                     transformResponse: function (cnv) {
-			console.log(cnv)
                         var x2js = new X2JS();
                         var aftCnv = x2js.xml_str2json(cnv);
                         return aftCnv;
                     }
                 })
         .then(function (response) {
+        	console.log(response)
             page.notenrollen = response.data.notenrollen.object;
         });
 

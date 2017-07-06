@@ -39,7 +39,11 @@ def search_database(request, **args):
     # TODO: 1. calculate xpath expression
     # TODO: 2. apply this expression on database
 
+<<<<<<< HEAD
     xmldata=response
+=======
+    xmldata= '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><TODO> </TODO>'
+>>>>>>> e8a5209a7c086dbea7201732bcd80741a29cc705
 
     # TODO: 3. send database response (xml) to client
     return HttpResponse(xmldata, content_type='application/xml')
