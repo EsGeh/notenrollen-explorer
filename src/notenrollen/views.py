@@ -29,11 +29,17 @@ def quiz(request, **args):
     return render(request, "quiz.html", context )
 
 def search_database(request, **args):
+    import requests as httplib
+
     keyword = args['keyword']
+
+    url = basex_uri + "/rest/notenrollen/notenrollen_production_data.xml"
+    headers={"Authorization": "Basic YWRtaW46YWRtaW4=", "request": "//*[matches(text(),${term},'i')]/../..".format(term=keyword) }
+    response = httplib.get(url=url, headers=headers)
     # TODO: 1. calculate xpath expression
     # TODO: 2. apply this expression on database
 
-    xmldata= '<TODO> </TODO>'
+    xmldata=response
 
     # TODO: 3. send database response (xml) to client
     return HttpResponse(xmldata, content_type='application/xml')

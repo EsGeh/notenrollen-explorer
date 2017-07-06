@@ -10,4 +10,4 @@ docker container run \
 		-it \
     --rm \
     --link basex:basex \
-    basex/basexhttp:latest bash -c "basexclient -nbasex -c 'create db notenrollen /res/all_objects.xml'"
+    basex/basexhttp:latest bash -c "basexclient -nbasex -c 'create db notenrollen /res/notenrollen_production_data.xml'"
