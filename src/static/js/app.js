@@ -3,6 +3,12 @@
 	var DO_AUTH = true;
 	
 	var ADDRESS = 'http://localhost:8000/';
+
+	jQuery(document).ready(function($) {
+    		$(".clickable-row").click(function() {
+       			 window.location = $(this).data("href");
+    		});
+	});
 	
 //	var restServices = angular.module('notenrollenexplorer.rest_services', ['ngResource']);	
 //	restServices = restServices.factory('NotenrollenService', function($http){
@@ -42,7 +48,6 @@
         $http.get(ADDRESS + "search_database",
                 {
                     transformResponse: function (cnv) {
-			console.log(cnv)
                         var x2js = new X2JS();
                         var aftCnv = x2js.xml_str2json(cnv);
                         return aftCnv;
@@ -110,6 +115,12 @@
         	}
         }	
         
+	});
+
+	app.controller('ExploreController', function($http) {
+		
+		page.current;
+
 	});
 
 })();
