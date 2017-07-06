@@ -8,11 +8,12 @@
   <xsl:template match="/">
   	<notenrollen>
 		<xsl:for-each select="lido:lidoWrap/lido:lido">
-			<!--record loop-->
-			<object>
 			<xsl:variable name = "recordID" select = "lido:administrativeMetadata/lido:recordWrap/lido:recordID"/>
+			<xsl:variable name = "objectID" select = "lido:lidoRecID"/>
+			<!--record loop-->
+			<object id="{$objectID}">
 			<descriptiveMetadata>
-				<objectID><xsl:value-of select="lido:lidoRecID"/></objectID>
+				<objectID><xsl:value-of select="$objectID"/></objectID>
 				<title>	<xsl:value-of select="lido:descriptiveMetadata/lido:objectIdentificationWrap/lido:titleWrap/lido:titleSet/lido:appellationValue"/></title>
 				<objectType><xsl:value-of select="(lido:descriptiveMetadata/lido:objectClassificationWrap/lido:objectWorkTypeWrap/lido:objectWorkType/lido:term)[1]"/></objectType>
 				<instrument><xsl:value-of select="(lido:descriptiveMetadata/lido:objectClassificationWrap/lido:objectWorkTypeWrap/lido:objectWorkType/lido:term)[2]"/></instrument>
