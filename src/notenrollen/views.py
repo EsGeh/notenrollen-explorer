@@ -28,6 +28,16 @@ def quiz(request, **args):
     context = {}
     return render(request, "quiz.html", context )
 
+def search_database(request, **args):
+    keyword = args['keyword']
+    # TODO: 1. calculate xpath expression
+    # TODO: 2. apply this expression on database
+
+    xmldata= '<TODO> </TODO>'
+
+    # TODO: 3. send database response (xml) to client
+    return HttpResponse(xmldata, content_type='application/xml')
+
 def gen_catalogue(request, **args):
     from lxml import etree
     import requests as httplib

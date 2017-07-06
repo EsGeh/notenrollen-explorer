@@ -29,6 +29,9 @@ urlpatterns = [
     url(r'^search$', views.search, name="search"),
     url(r'^quiz$', views.quiz, name="quiz"),
 
+    # rest api to ask for search requests:
+    url(r'^search_database?(?P<keyword>[a-z]*)$', views.search_database, name="searchdatabase"),
+
     url(r'^catalogue/(?P<page_count>[0-9]{1,3})/(?P<page_index>[0-9]{1,4})$', views.gen_catalogue, name="catalogue"),
 
     # url(r'^$', index_view, name="catalogue"),
