@@ -33,7 +33,7 @@ def search_database(request, **args):
     # TODO: 1. calculate xpath expression
     # TODO: 2. apply this expression on database
 
-    xmldata= '<TODO> </TODO>'
+    xmldata= '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><TODO> </TODO>'
 
     # TODO: 3. send database response (xml) to client
     return HttpResponse(xmldata, content_type='application/xml')
