@@ -36,16 +36,9 @@ def search_database(request, **args):
     url = basex_uri + "/rest/notenrollen/notenrollen_production_data.xml"
     headers={"Authorization": "Basic YWRtaW46YWRtaW4=", "request": "//*[matches(text(),${term},'i')]/../..".format(term=keyword) }
     response = httplib.get(url=url, headers=headers)
-    # TODO: 1. calculate xpath expression
-    # TODO: 2. apply this expression on database
 
-<<<<<<< HEAD
     xmldata=response
-=======
-    xmldata= '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><TODO> </TODO>'
->>>>>>> e8a5209a7c086dbea7201732bcd80741a29cc705
-
-    # TODO: 3. send database response (xml) to client
+ 
     return HttpResponse(xmldata, content_type='application/xml')
 
 def gen_catalogue(request, **args):
