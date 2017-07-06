@@ -34,7 +34,7 @@
 		     		 </tr>
 		    </thead>
 		    <tbody>
-		      <tr ng-repeat="notenrolle in searchCtrl.notenrollen">
+		      <tr onclick="document.location = '{% url 'explore' %} ?id=4';" ng-repeat="notenrolle in searchCtrl.notenrollen">
 		      	<td>{[{searchCtrl.getTitle(notenrolle)}]}</td>
 		      	<!-- <td>{{notenrolle.type}}</td> -->
 		      	<td>{[{searchCtrl.getInstrument(notenrolle)}]}</td>
