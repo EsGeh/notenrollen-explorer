@@ -2,7 +2,7 @@
 
 ## load xml data to base x
 
-./scripts/run_basex.sh
+# ./scripts/run_basex.sh
 
 echo "connecting to db, and import xml data"
 

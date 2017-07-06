@@ -3,10 +3,13 @@
 BASEX_DATA="$(pwd)/basexdata"
 BASEX_CONTAINER_NAME=basex
 
+# this doesn't work correctly, for some reason:
+: '
 if [[ ! -e $BASEX_DATA ]]; then
 	mkdir "$BASEX_DATA"
 	sudo chmod a+w $BASEX_DATA
 fi
+'
 
 container_is_running=$(docker container ls | grep "$BASEX_CONTAINER_NAME")
 if [[ $container_is_running != "" ]]; then

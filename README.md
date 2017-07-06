@@ -31,6 +31,16 @@ run
 
 test if the server is running by typing loading "localhost:8000" in your browser
 
+## load data into basex database
+
+execute these commands:
+
+	$ mkdir basexdata
+	$ sudo chmod a+w basexdata
+	$ ./scripts/run_basex.sh
+	$ ./scripts/init_basex.sh
+	$ docker container stop basex; and docker container rm basex
+
 ## advanced docker usage
 
 ### docker terminology
