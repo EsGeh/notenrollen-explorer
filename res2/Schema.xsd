@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.w3schools.com"xmlns="https://www.w3schools.com">
+	<xs:element name="Komponist" type="xs:string"/>
+	<xs:element name="image" type="xs:string"/>
+	<xs:element name="Interpret" type="xs:string"/>
+	<xs:element name="objectData">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="image" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="instrument" type="xs:string"/>
+	<xs:element name="title" type="xs:string"/>
+	<xs:element name="objectType" type="xs:string"/>
+	<xs:element name="actors">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Hersteller" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Komponist" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Interpret" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Hersteller" type="xs:string"/>
+	<xs:element name="notenrollen">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="object" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="descriptiveMetadata">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="objectID"/>
+				<xs:element ref="title"/>
+				<xs:element ref="objectType"/>
+				<xs:element ref="instrument"/>
+				<xs:element ref="objectDescription"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="term" type="xs:string"/>
+	<xs:element name="objectID" type="xs:string"/>
+	<xs:element name="object">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="descriptiveMetadata"/>
+				<xs:element ref="objectData"/>
+				<xs:element ref="actors"/>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="objectDescription">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="term" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
