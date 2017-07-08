@@ -10,15 +10,24 @@ basex_uri = "http://basex:8984"
 login_data = "YWRtaW46YWRtaW4="
 
 def search(keyword):
-    return search_by_xpath("//*[contains(text(),${term},'i')]/../..".format(term=keyword))
+    return search_by_xpath("//text()[contains(.,'{term}')]/ancestor::object".format(term=keyword))
 
 def list_entries(entries_per_page, page):
-    xpath_expr = "/notenrollen/object[position() &lt; 5]"
+    xpath_expr = \
+        "/notenrollen/object[(position() > {entries_per_page}*{page}) and (position() < ({entries_per_page}*({page}+1)))]" \
+        .format( entries_per_page=entries_per_page, page=page )
+    # print( xpath_expr )
     return search_by_xpath(xpath_expr)
+
+
 
 def search_by_xpath(xpath_expr):
     import requests as httplib
+
     url = basex_uri + "/rest/notenrollen/notenrollen_production_data.xml"
-    headers={"Authorization": "Basic YWRtaW46YWRtaW4=", "request": xpath_expr }
-    response = httplib.get(url=url, headers=headers)
+    headers={"Authorization": "Basic YWRtaW46YWRtaW4=" }
+    params = \
+        { "command": "XQUERY " + xpath_expr }
+
+    response = httplib.get(url=url, headers=headers, params=params)
     return response.text

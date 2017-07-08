@@ -11,8 +11,10 @@
 <body>
 
 <div id="box" class="box">
-	<input placeholder="Suche..."/>
-	  <button type="button" id="search">Los</button>
+	<form action="search" method="get">
+		<input name="keyword" placeholder="Suche..."/>
+	  <button type="submit" id="search">Los</button>
+	</form>
 	  <div ng-controller="SearchController as searchCtrl">
 		  <table class="table table-hover">
 		    	<thead>

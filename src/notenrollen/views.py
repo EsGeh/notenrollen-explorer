@@ -20,27 +20,28 @@ def explore(request, **args):
 
 def search(request, **args):
     if not "keyword" in request.GET:
-        print( "no keyword" )
+        # print( "no keyword" )
         xml_data = database.list_entries(50,0)
     else:
         keyword = request.GET.get("keyword")
+        print( "keyword: {}".format( keyword ) )
         xml_data = database.search( keyword )
+
+    # print( "xml response:" )
+    # print( xml_data )
 
     # xml to python:
     from lxml import etree
-    source_xml = etree.XML( xml_data )
-    # print( "number of objects: {}".format( len(source_xml) ))
-    # print( etree.tostring(source_xml) )
+    # the dummy "root" element is necessary for valid xml:
+    source_xml = etree.XML( "<root>" + xml_data + "</root>" )
     search_entries = []
-    for xml_object in source_xml[0:10]:
+    for xml_object in source_xml:
         entry = {}
-        # print( etree.tostring(xml_object) )
 
         title = xml_object.find("descriptiveMetadata/title")
         if title is not None:
             title = title.text
         else:
-            print( title )
             title = "unknown"
         instrument = xml_object.find("descriptiveMetadata/instrument")
         if instrument is not None:
