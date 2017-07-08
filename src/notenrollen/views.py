@@ -32,9 +32,8 @@ def search_database(request, **args):
     import requests as httplib
 
     keyword = args['keyword']
-
     url = basex_uri + "/rest/notenrollen/notenrollen_production_data.xml"
-    headers={"Authorization": "Basic YWRtaW46YWRtaW4=", "request": "//*[matches(text(),${term},'i')]/../..".format(term=keyword) }
+    headers={"Authorization": "Basic YWRtaW46YWRtaW4=", "request": "//(descriptiveMetadata|actors)//*[matches(text(),${term},'i')]/ancestor::object".format(term=keyword) }
     response = httplib.get(url=url, headers=headers)
 
     xmldata=response
