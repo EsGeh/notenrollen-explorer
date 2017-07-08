@@ -24,7 +24,7 @@ def search(request, **args):
         xml_data = database.list_entries(50,0)
     else:
         keyword = request.GET.get("keyword")
-        print( "keyword: {}".format( keyword ) )
+        # print( "keyword: {}".format( keyword ) )
         xml_data = database.search( keyword )
 
     # print( "xml response:" )
@@ -55,12 +55,12 @@ def search(request, **args):
         if interpreter is not None:
             interpreter = interpreter.text
         else: interpreter = "unknown"
+
         entry["title"] = title
         entry["instrument"] = instrument
         entry["composer"] = composer
         entry["interpreter"] = interpreter
         search_entries.append( entry )
-
 
     context = {
         "search_entries": search_entries
