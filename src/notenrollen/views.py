@@ -4,13 +4,11 @@ from django.http import HttpResponse
 from django.shortcuts import render
 # from django.template.loader import render_to_string
 
+from .utils import database
+
 
 xslt_path = join(XSLT_DIR, "gen_catalogue_html.xslt")
-cataloge_index_path = join(RES_BASE_DIR, "all_objects.xml")
-basex_uri = "http://basex:8984"
 
-# base64( <user>:<passwd> ) :
-login_data = "YWRtaW46YWRtaW4="
 
 def index_page(request, **args):
     context = {}
@@ -21,24 +19,63 @@ def explore(request, **args):
     return render(request, "explore.html", context )
 
 def search(request, **args):
-    context = {}
+    if not "keyword" in request.GET:
+        print( "no keyword" )
+        xml_data = database.list_entries(50,0)
+    else:
+        keyword = request.GET.get("keyword")
+        xml_data = database.search( keyword )
+
+    # xml to python:
+    from lxml import etree
+    source_xml = etree.XML( xml_data )
+    # print( "number of objects: {}".format( len(source_xml) ))
+    # print( etree.tostring(source_xml) )
+    search_entries = []
+    for xml_object in source_xml[0:10]:
+        entry = {}
+        # print( etree.tostring(xml_object) )
+
+        title = xml_object.find("descriptiveMetadata/title")
+        if title is not None:
+            title = title.text
+        else:
+            print( title )
+            title = "unknown"
+        instrument = xml_object.find("descriptiveMetadata/instrument")
+        if instrument is not None:
+            instrument = instrument.text
+        else: instrument = "unknown"
+        composer = xml_object.find("actors/Komponist")
+        if composer is not None:
+            composer = composer.text
+        else: composer = "unknown"
+        interpreter = xml_object.find("actors/Interpret")
+        if interpreter is not None:
+            interpreter = interpreter.text
+        else: interpreter = "unknown"
+        entry["title"] = title
+        entry["instrument"] = instrument
+        entry["composer"] = composer
+        entry["interpreter"] = interpreter
+        search_entries.append( entry )
+
+
+    context = {
+        "search_entries": search_entries
+    }
     return render(request, "search.html", context )
 
 def quiz(request, **args):
     context = {}
     return render(request, "quiz.html", context )
 
-def search_database(request, **args):
-    import requests as httplib
 
+# rest api to ask for search requests:
+def search_database(request, **args):
     keyword = args['keyword']
 
-    url = basex_uri + "/rest/notenrollen/notenrollen_production_data.xml"
-    headers={"Authorization": "Basic YWRtaW46YWRtaW4=", "request": "//*[matches(text(),${term},'i')]/../..".format(term=keyword) }
-    response = httplib.get(url=url, headers=headers)
-
-    xmldata=response
- 
+    xmldata=database.search(keyword)
     return HttpResponse(xmldata, content_type='application/xml')
 
 def gen_catalogue(request, **args):
