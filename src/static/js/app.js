@@ -38,14 +38,14 @@
 	app.config(function($interpolateProvider){
 		$interpolateProvider.startSymbol('{[{').endSymbol('}]}');
 	});
-	
+
 	app.controller('SearchController', function($http) {
 		
 		var page = this;
 		
 		page.notenrollen = [];
-		
-        $http.get(ADDRESS + "search_database",
+
+		$http.get(ADDRESS + "search_database",
                 {
                     transformResponse: function (cnv) {
                         var x2js = new X2JS();
@@ -56,6 +56,35 @@
         .then(function (response) {
             page.notenrollen = response.data.notenrollen.object;
         });
+		
+		this.searchText = function() {
+			var searchTxt = document.getElementById("searchField").value;
+			page.searchDatabase(searchTxt);
+		};
+
+		page.searchDatabase = function(searchText) {
+
+			var strGet = ADDRESS + "search_database";
+			if(searchText != "") {
+				strGet = strGet + "?" + searchText;
+			}
+
+			console.log(strGet);
+			$http.get(strGet,
+                {
+                    transformResponse: function (cnv) {
+                        var x2js = new X2JS();
+                        var aftCnv = x2js.xml_str2json(cnv);
+                        return aftCnv;
+                    }
+                })
+        .then(function (response) {
+            page.notenrollen = response.data.notenrollen.object;
+        });
+
+		};
+
+        
 
         this.getId = function(notenrolle) {
         	if(notenrolle.id != notenrolle.id) {
@@ -124,4 +153,3 @@
 	});
 
 })();
-
