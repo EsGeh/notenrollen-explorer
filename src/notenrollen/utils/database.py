@@ -10,7 +10,7 @@ basex_uri = "http://basex:8984"
 login_data = "YWRtaW46YWRtaW4="
 
 def search(keyword):
-    return search_by_xpath("//*[contains(text(),${term},'i')]/../..".format(term=keyword))
+    return search_by_xpath("//(descriptiveMetadata|actors)//*[matches(text(),$term,'i')]/ancestor::object".format(term=keyword))
 
 def list_entries(entries_per_page, page):
     xpath_expr = "/notenrollen/object[position() &lt; 5]"
