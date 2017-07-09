@@ -25,6 +25,17 @@ run
 
 	$ ./scripts/getpics.py
 
+### fetch the complete piano roll scans
+
+There are 2 examples of complete piano roll scans.
+Since these images are very large, we use a reduced quality version for our music player.
+
+*These are included in the git repo, so there is no need to download them.*
+
+The full quality complete piano roll scans are available here:
+
+	https://codingdavinci.de/daten/
+
 ## how to run the server
 
 	$ docker-compose up

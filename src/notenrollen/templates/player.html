@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Notenrollen Player</title>
+<link rel="stylesheet" type="text/css" href="{% static "player.css" %} "/>
+</head>
+<body>
+	<div id="container">
+
+		<div id="title" class="clear_positioning show_box">
+			Notenrollen Player 
+		</div>
+		<p>
+			<button onclick="play()"> start </button>
+			<!-- <button onclick="pause()"> pause </button> -->
+			<button onclick="stop()"> stop </button>
+			<span id="elapsed_time_display"> 0 </span>
+		</p>
+
+		<div id="player" class="show_box">
+		</div>
+		<audio id="audio_player" src="static/komplette_notenrollen/audio/Edvard Grieg plays his Butterfly (1906).wav" preload="auto"></audio>
+		<!--
+		<img id="player" class="show_box" alt="notenrolle" src="static/komplette_notenrollen/optimized/NotenrolleDMInvNr2006-618_50.jpg"/>
+		-->
+
+	</div>
+</body>
+<script>
+	"use strict";
+	var elem = document.getElementById("player"); 
+	var audioPlayer = document.getElementById("audio_player"); 
+	var time_display = document.getElementById("elapsed_time_display"); 
+	var timer = null;
+	var frame_rate = 100; // in ms
+	var duration = audioPlayer.duration * 1000; // in ms
+	//var duration = 120 * 1000; // in ms
+	var t0 = Date.now();
+	var time_since_start = 0;
+	var posStr = 0;
+	function play() {
+		timer = setInterval(frame, frame_rate);
+		//audioPlayer.controls = true;
+		audioPlayer.play();
+		duration = audioPlayer.duration * 1000; // in ms
+		//console.log("player start date:" + audioPlayer.startDate.getMilliseconds());
+		function frame() {
+			time_since_start = Date.now() - t0;
+			if (time_since_start >= duration) {
+				console.log( "timer stopped!")
+				clearInterval(timer);
+			} else {
+				//console.log( "pos: " + time_since_start );
+				posStr = time_since_start/duration*100 + "%" + " " + 0 + "%"; 
+				elem.style.backgroundPosition = posStr;
+				time_display.innerHTML = parseInt(time_since_start/1000) + " sec";
+			}
+		}
+	}
+	/*
+	function pause() {
+		posStr = 0 + "%" + " " + 0 + "%"; 
+		elem.style.backgroundPosition = posStr;
+	}
+	*/
+	function stop() {
+		t0 = Date.now();
+		time_since_start = 0;
+		posStr = 0 + "%" + " " + 0 + "%"; 
+		elem.style.backgroundPosition = posStr;
+		clearInterval(timer);
+		time_display.innerHTML = parseInt(time_since_start/1000) + " sec";
+		audioPlayer.pause();
+		audioPlayer.currentTime = 0;
+	}
+</script>
+</html>

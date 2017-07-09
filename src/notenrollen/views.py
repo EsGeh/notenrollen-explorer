@@ -93,6 +93,9 @@ def explore(request, **args):
 
     return render(request, "explore.html", context )
 
+def player(request, **args):
+    context = {}
+    return render(request, "player.html", context )
 
 def search(request, **args):
     if not "keyword" in request.GET:
