@@ -1,0 +1,59 @@
+/* Set height to 100% for body and html to enable the background image to cover the whole page: */
+
+html, body {
+	margin: 0; border: 0; padding: 0;
+	/*margin-color: black;*/
+	/*position: relative;*/
+	/*height: 100%;*/
+	box-sizing: border-box;
+}
+
+.clear_positioning {
+	margin: 0; border: 0; padding: 0;
+	box-sizing: border-box;
+}
+
+.show_box {
+	border: 1px;
+	border-color: black;
+	border-style: solid;
+}
+
+#container {
+	position: relative;
+	/*border-color: black;*/
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#title {
+	/*position: absolute;*/
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
+	font-size: 100px; /* Increase font size */
+	color: #ffdead;
+}
+
+#player {
+
+	background-image: url("komplette_notenrollen/optimized/NotenrolleDMInvNr2006-618_100dpi_20q.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	-webkit-transform: translate3d(0,0,0);
+	background-position: 0px 0px;
+	/* background-attachement: fixed; */
+	
+	/*position: absolute; */
+	background-color: white;
+	margin: 10px;
+	height: 600px;
+	/*
+	left: 0;
+	top: 0;
+	*/
+	width: 100%;
+	/*height: 100%;*/
+}
