@@ -15,8 +15,83 @@ def index_page(request, **args):
     return render(request, "index.html", context )
 
 def explore(request, **args):
-    context = {}
+
+    objectID = request.GET.get("objectID")
+    xml_data = database.search(objectID)
+
+    # xml to python:
+    from lxml import etree
+    # the dummy "root" element is necessary for valid xml:
+    source_xml = etree.XML( "<root>" + xml_data + "</root>" )
+
+    entry = {}
+    for xml_object in source_xml:
+
+        title = xml_object.find("descriptiveMetadata/title")
+        if title is not None:
+            title = title.text
+        else:
+            title = "unknown"
+
+        type = xml_object.find("descriptiveMetadata/objectType")
+        if type is not None:
+            type = type.text
+        else:
+            type = "unknown"
+
+        instrument = xml_object.find("descriptiveMetadata/instrument")
+        if instrument is not None:
+            instrument = instrument.text
+        else: instrument = "unknown"
+
+        description = xml_object.find("descriptiveMetadata/objectDescription")
+        strDescription = ""
+        if description is not None:
+            for term in description:
+                strDescription = strDescription + term.text + "\n"
+        else: strDescription = "unknown"
+
+        actors = xml_object.find("actors")
+        strHersteller = ""
+        strKomponist = ""
+        strInterpret = ""
+        if actors is not None:
+            for actor in actors:
+                if(actor.tag == "Hersteller"):
+                    strHersteller = strHersteller + actor.text + "\n"
+                if(actor.tag == "Komponist"):
+                    strKomponist = strKomponist + actor.text + "\n"
+                if(actor.tag == "Interpret"):
+                    strInterpret = strInterpret + actor.text + "\n"
+
+            if strHersteller == "":
+                strHersteller = "unknown"
+            if strKomponist == "":
+                strKomponist = "unknown"
+            if strInterpret == "":
+                strInterpret = "unknown"
+
+        objectData = xml_object.find("objectData")
+        images = []
+        for image in objectData:
+            images.append(image.text)
+
+        entry["title"] = title
+        entry["type"] = type
+        entry["instrument"] = instrument
+        entry["description"] = strDescription
+        entry["hersteller"] = strHersteller
+        entry["komponist"] = strKomponist
+        entry["interpret"] = strInterpret
+        entry["images"] = images
+
+
+    context = {
+        "entry": entry
+    }
+
     return render(request, "explore.html", context )
+
 
 def search(request, **args):
     if not "keyword" in request.GET:
@@ -37,7 +112,12 @@ def search(request, **args):
     search_entries = []
     for xml_object in source_xml:
         entry = {}
-
+	
+        objectID = xml_object.find("descriptiveMetadata/objectID")
+        if objectID is not None:
+            objectID = objectID.text
+        else:
+            objectID = "unknown"
         title = xml_object.find("descriptiveMetadata/title")
         if title is not None:
             title = title.text
@@ -56,6 +136,7 @@ def search(request, **args):
             interpreter = interpreter.text
         else: interpreter = "unknown"
 
+        entry["objectID"] = objectID
         entry["title"] = title
         entry["instrument"] = instrument
         entry["composer"] = composer

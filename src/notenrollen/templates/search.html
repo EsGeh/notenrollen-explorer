@@ -37,7 +37,7 @@
 		    </thead>
 		    <tbody>
 					{% for entry in search_entries %}
-		      <tr onclick="document.location = '{% url 'explore' %} ?id=4';" ng-repeat="notenrolle in searchCtrl.notenrollen">
+		      <tr onclick="document.location = '{% url 'explore' %}?objectID={{entry.objectID}}';" ng-repeat="notenrolle in searchCtrl.notenrollen">
 						<td>{{entry.title}}</td>
 						<td>{{entry.instrument}}</td>
 						<td>{{entry.composer}}</td>
