@@ -76,6 +76,7 @@ def explore(request, **args):
         for image in objectData:
             images.append(image.text)
 
+        entry["objectID"] = objectID
         entry["title"] = title
         entry["type"] = type
         entry["instrument"] = instrument
