@@ -17,7 +17,7 @@ a web application to explore data about piano rolls for player pianos collected 
 
 		$ ./scripts/gen_xml_index.sh
 
-	This will generate the file 'res/index.xml'.
+	This will generate the file 'res/all_objects.xml'.
 
 ### fetch image files
 

@@ -8,30 +8,32 @@
 <body>
 
 <div id="box" class="box" ng-controller="ExploreController as exploreCtrl">
-	<div id="{[{exploreCtrl.getId()}]}" class="carousel slide smallCarousel" data-ride="carousel">
+	<div id="{{entry.objectID}}" class="carousel slide smallCarousel" data-ride="carousel">
   		<!-- Indicators -->
   		<ol class="carousel-indicators">
-    		<li data-target="#{[{exploreCtrl.getId()]}" data-slide-to="0" class="active"></li>
-    		<li data-target="#{[{exploreCtrl.getId()}]}" data-slide-to="1"></li>
-    		<li data-target="#{[{exploreCtrl.getId()}]}" data-slide-to="2"></li>
+    		<li data-target="#{{entry.objectID}}" data-slide-to="0" class="active"></li>
+    		<li data-target="#{{entry.objectID}}" data-slide-to="1"></li>
+    		<li data-target="#{{entry.objectID}}" data-slide-to="2"></li>
   		</ol>
 
 	  	<!-- Wrapper for slides -->
 	  	<div class="carousel-inner">
 	   		<div class="item active">
-	      		<img src="{[{exploreCtrl.getImages()[0]}]}">
+	      		<img src="{{entry.images.0}}">
 	    	</div>
-		    <div class="item" ng-repeat="image in exploreCtrl.getImages() | limitTo: (1 - exploreCtrl.getImages().length)">
-		   		<img src="{[{image}]}">
+		    <div class="item">
+                         {% for image in entry.images %}
+		   		<img src="{{image}}">
+                         {% endfor %}
 		    </div>
 	 	</div>
 	
 	  	<!-- Left and right controls -->
-	  	<a class="left carousel-control" href="#{[{exploreCtrl.getId()}]}" data-slide="prev">
+	  	<a class="left carousel-control" data-slide="prev">
 	    	<span class="glyphicon glyphicon-chevron-left"></span>
 	    	<span class="sr-only">Previous</span>
 	  	</a>
-	  	<a class="right carousel-control" href="#{[{exploreCtrl.getId()}]}" data-slide="next">
+	  	<a class="right carousel-control" data-slide="next">
 	    	<span class="glyphicon glyphicon-chevron-right"></span>
 	    	<span class="sr-only">Next</span>
 	  	</a>
@@ -40,39 +42,39 @@
 	<div class="infobox">
 	
 		<div class="infobox_title">
-			<h1 style="font-weight: bold;">{[{exploreCtrl.getTitle()}]}</h1>
+			<h1 style="font-weight: bold;">{{entry.title}}</h1>
 		</div>
 		
 		<div class="infobox_type_instrument">
 			<div class="infobox_type">
 				<h2 style="color: #8b795e">Typ</h2>
-				{[{exploreCtrl.getType()}]}
+				{{entry.type}}
 			</div>
 			<div class="infobox_instrument">
 				<h2 style="color: #8b795e">Instrument</h2>
-				{[{exploreCtrl.getInstrument()}]}
+				{{entry.instrument}}
 			</div>
 		</div>
 		
 		<div class="infobox_description">
 			<h2 style="color: #8b795e">Beschreibung</h2>
-			{[{exploreCtrl.getDescription()}]}
+			{{entry.description}}
 		</div>
 		
 		<div class="infobox_hersteller">
 			<h2 style="color: #8b795e">Hersteller</h2>
-			{[{exploreCtrl.getHersteller()}]}
+			{{entry.hersteller}}
 		</div>
 		
 		<div class="infobox_komponist_interpret">
 			<div class="infobox_komponist">
 				<h2 style="color: #8b795e">Komponist</h2>
-				{[{exploreCtrl.getComponist()}]}
+				{{entry.komponist}}
 			</div>
 			
 			<div class="infobox_interpret">
 				<h2 style="color: #8b795e">Interpret</h2>
-				{[{exploreCtrl.getInterpret()}]}
+				{{entry.interpret}}
 			</div>
 		</div>
 	

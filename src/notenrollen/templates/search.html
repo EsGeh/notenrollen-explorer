@@ -11,10 +11,11 @@
 <body>
 
 <div id="box" class="box">
-	
+	<form action="search" method="get">
+		<input name="keyword" placeholder="Suche..."/>
+	  <button type="submit" id="search">Los</button>
+	</form>
 	  <div ng-controller="SearchController as searchCtrl">
-		<input id="searchField" placeholder="Suche..."/>
-	  <button type="button" id="search" ng-click="searchCtrl.searchText()" >Los</button>
 		  <table class="table table-hover">
 		    	<thead>
 		    		<!-- <tr>
@@ -35,14 +36,24 @@
 		     		 </tr>
 		    </thead>
 		    <tbody>
+					{% for entry in search_entries %}
+		      <tr onclick="document.location = '{% url 'explore' %}?objectID={{entry.objectID}}';" ng-repeat="notenrolle in searchCtrl.notenrollen">
+						<td>{{entry.title}}</td>
+						<td>{{entry.instrument}}</td>
+						<td>{{entry.composer}}</td>
+						<td>{{entry.interpreter}}</td>
+					</tr>
+					{% endfor %}
+					<!--
 		      <tr onclick="document.location = '{% url 'explore' %} ?id=4';" ng-repeat="notenrolle in searchCtrl.notenrollen">
 		      	<td>{[{searchCtrl.getTitle(notenrolle)}]}</td>
-		      	<!-- <td>{{notenrolle.type}}</td> -->
+		      	<td>{{notenrolle.type}}</td> 
 		      	<td>{[{searchCtrl.getInstrument(notenrolle)}]}</td>
-		      	<!-- <td>{{notenrolle.hersteller}}</td> -->
+		      	<td>{{notenrolle.hersteller}}</td>
 		      	<td>{[{searchCtrl.getComponist(notenrolle)}]}</td>
 		      	<td>{[{searchCtrl.getInterpret(notenrolle)}]}</td>
 			   </tr>
+				 -->
 		    </tbody>
 		  </table>
 		</div>
@@ -50,11 +61,13 @@
 
 </body>
 <footer>
+	<!--
 	<script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
 	<script type="text/javascript" src="{% static "js/angular/angular.js" %}"></script>
 	<script type="text/javascript" src="{% static "js/app.js" %}"></script>
 	<script type="text/javascript" src="{% static "js/xml2json.js" %}"></script>
 	<script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+	-->
 </footer>
 
 </html>
