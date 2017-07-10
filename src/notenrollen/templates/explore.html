@@ -26,11 +26,11 @@
                    {% for image in entry.images %}
 	           {% if image == entry.images.0 %}
 		   <div class="item active">
-		      <img src="static/notenrollen/images/{{image}}">
+		      <img src="{{image}}">
 		   </div>
 		   {% else %}
     		   <div class="item">
-                      <img src="static/notenrollen/images/{{image}}">
+                      <img src="{{image}}">
                    </div>
                    {% endif %}
 		   {% endfor %}
