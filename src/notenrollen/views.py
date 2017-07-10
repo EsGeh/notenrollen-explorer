@@ -139,7 +139,7 @@ def xml_object_to_python_dict(xml_object):
     objectData = xml_object.find("objectData")
     images = []
     for image in objectData:
-        images.append(image.text)
+        images.append(image.text[5:])
 
     entry["objectID"] = strObjectID
     entry["title"] = strTitle

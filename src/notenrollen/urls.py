@@ -34,7 +34,7 @@ urlpatterns = [
     # rest api to ask for search requests:
     url(r'^search_database?(?P<keyword>[a-z]*)$', views.search_database, name="searchdatabase"),
 
-    url(r'^explore?(?P<objectID>DE-MUS-[0-9]*\/[0-9]*-[0-9]*)$', views.explore, name="exploreWithID"),
+    url(r'^explore?(?P<objectID>DE-MUS-[0-9]*\/[0-9]*-[0-9]*[A-Z]*[0-9]*)$', views.explore, name="exploreWithID"),
     # url(r'^catalogue/(?P<page_count>[0-9]{1,3})/(?P<page_index>[0-9]{1,4})$', views.gen_catalogue, name="catalogue"),
 
     # url(r'^$', index_view, name="catalogue"),
