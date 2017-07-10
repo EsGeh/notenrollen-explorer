@@ -1,0 +1,34 @@
+PREFIX  dbo: <http://dbpedia.org/ontology/>
+PREFIX  dbp: <http://dbpedia.org/property/>
+PREFIX dbr:  <http://dbpedia.org/resource/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+#convert to string explicitly to retrieve plain text
+SELECT 
+(str(?name_pre) as ?name) 
+(str(?gender_pre) as ?gender) 
+(str(?birth_pre) as ?birth) 
+(str(?death_pre) as ?death) 
+(str(?birthplace_pre) as ?birthplace) 
+(str(?deathplace_pre) as ?deathplace) 
+(str(?description_pre) as ?description) 
+(str(?thumbnail_pre) as ?thumbnail) 
+WHERE {
+  ?person a dbo:Person ;
+          foaf:name ?name_pre ;
+          foaf:gender ?gender_pre;
+          dbo:birthDate ?birth_pre;
+          dbo:deathDate ?death_pre;
+          dbo:birthPlace ?birthplace_property;
+          dbo:deathPlace ?deathplace_property;
+          dct:description ?description_pre;
+          dbo:thumbnail ?thumbnail_pre.
+          ?deathplace_property rdfs:label ?deathplace_pre.		#get deathplace label 
+          ?birthplace_property rdfs:label ?birthplace_pre.		#get birthplace label
+  ?composition dbo:musicComposer ?person 		                #person who is a musical composer     
+  FILTER ( lang(?name_pre) = 'en' and lang(?gender_pre) = 'en' and lang(?birthplace_pre) = 'en' and lang(?deathplace_pre) = 'en' and lang(?description_pre) = 'en')
+  FILTER (regex(?name_pre, "SEARCH_TERM"))    #search by artist name, SEARCH_TERM will be replaced in corresponding function 
+}
+LIMIT 1

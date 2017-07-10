@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 # from django.template.loader import render_to_string
 
-from .utils import database
+from .utils import database, dbpedia_request
 
 
 def index_page(request, **args):
@@ -67,6 +67,12 @@ def search_database(request, **args):
     keyword = args['keyword']
     xmldata=database.search(keyword)
     return HttpResponse(xmldata, content_type='application/xml')
+
+
+def composer_details(composer_name, **args):
+    dbpedia_data = dbpedia_request.dbp_request(composer_name)
+    return dbpedia_response_to_dict(dbpedia_data)
+
 
 ################################################
 ## utils:
@@ -154,5 +160,47 @@ def xml_object_to_python_dict(xml_object):
     entry["description"] = strDescription
     entry["hersteller"] = strHersteller
     entry["images"] = images
+
+    return entry
+
+
+def dbpedia_response_to_dict(dbpedia_response):
+    entry = {}
+    xml = etree.XML(xml_object)
+
+    ns = {"d":"http://www.w3.org/2005/sparql-results#", "xsi":"http://www.w3.org/2001/XMLSchema-instance"}
+
+    try:
+        entry['name'] = xml.xpath("d:results/d:result/d:binding[@name=\"name\"]/d:literal/text()", namespaces=ns)[0]
+    except IndexError as e:
+        print(e)
+    try:
+        entry['gender'] = xml.xpath("d:results/d:result/d:binding[@name=\"gender\"]/d:literal/text()", namespaces=ns)[0]
+    except IndexError as e:
+        print(e)
+    try:
+        entry['birth'] = xml.xpath("d:results/d:result/d:binding[@name=\"birth\"]/d:literal/text()", namespaces=ns)[0]
+    except IndexError as e:
+        print(e)
+    try:
+        entry['death'] = xml.xpath("d:results/d:result/d:binding[@name=\"death\"]/d:literal/text()", namespaces=ns)[0]
+    except IndexError as e:
+        print(e)
+    try:
+        entry['birthplace'] = xml.xpath("d:results/d:result/d:binding[@name=\"birthplace\"]/d:literal/text()", namespaces=ns)[0]
+    except IndexError as e:
+        print(e)
+    try:
+        entry['deathplace'] = xml.xpath("d:results/d:result/d:binding[@name=\"deathplace\"]/d:literal/text()", namespaces=ns)[0]
+    except IndexError as e:
+        print(e)
+    try:
+        entry['description'] = xml.xpath("d:results/d:result/d:binding[@name=\"description\"]/d:literal/text()", namespaces=ns)[0]
+    except IndexError as e:
+        print(e)
+    try:
+        entry['thumbnail'] = xml.xpath("d:results/d:result/d:binding[@name=\"thumbnail\"]/d:literal/text()", namespaces=ns)[0]
+    except IndexError as e:
+        print(e)
 
     return entry
