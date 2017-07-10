@@ -7,17 +7,17 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 #convert to string explicitly to retrieve plain text
 SELECT 
-(str(?name_pre) as ?name) 
-(str(?gender_pre) as ?gender) 
-(str(?birth_pre) as ?birth) 
-(str(?death_pre) as ?death) 
-(str(?birthplace_pre) as ?birthplace) 
-(str(?deathplace_pre) as ?deathplace) 
-(str(?description_pre) as ?description) 
-(str(?thumbnail_pre) as ?thumbnail) 
+(str(?name_pre) AS ?name) 
+(str(?gender_pre) AS ?gender) 
+(str(?birth_pre) AS ?birth) 
+(str(?death_pre) AS ?death) 
+(str(?birthplace_pre) AS ?birthplace) 
+(str(?deathplace_pre) AS ?deathplace) 
+(str(?description_pre) AS ?description) 
+(str(?thumbnail_pre) AS ?thumbnail) 
 WHERE {
   ?person a dbo:Person ;
-          foaf:name ?name_pre ;
+          foaf:name ?name_pre;
           foaf:gender ?gender_pre;
           dbo:birthDate ?birth_pre;
           dbo:deathDate ?death_pre;
