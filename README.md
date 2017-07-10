@@ -19,6 +19,11 @@ a web application to explore data about piano rolls for player pianos collected 
 
 	This will generate the file 'res/all_objects.xml'.
 
+	Transform to reduced dataset for further use in product (requires libsaxon-java):
+
+        	saxon-xslt 'res/all_objects.xml' 'scripts/gen_production_data.xslt -o res/notenrollen_production_data.xml
+
+
 ### fetch image files
 
 run

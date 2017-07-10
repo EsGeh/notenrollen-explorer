@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--run against 00index.xml to include single files"-->
+<!--run against /res/allobjects.xml->
 <xsl:stylesheet version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:lido="http://www.lido-schema.org"
@@ -24,7 +24,7 @@
 			</descriptiveMetadata>
 
 			<objectData>
-				<xsl:variable name = "picDir" select = "'./img/'"/>
+				<xsl:variable name = "picDir" select = "'static/notenrollen/images/'"/>
 				<image><xsl:value-of select="concat($picDir, $recordID, '_1.jpg')"/></image>
 				<image><xsl:value-of select="concat($picDir, $recordID, '_2.jpg')"/></image>
 				<image><xsl:value-of select="concat($picDir, $recordID, '_3.jpg')"/></image>
