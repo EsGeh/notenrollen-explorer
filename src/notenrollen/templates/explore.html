@@ -83,7 +83,7 @@
 		<div class="infobox_komponist_interpret">
 			<div class="infobox_komponist">
 				<h3  style="color: #8b795e; font-weight: bold;">Komponist</h3>
-					{% if entry.composer is None %}
+					{% if not entry.composer %}
 						unknown
 					{%else%}
 						{% for composer in entry.composer %}
