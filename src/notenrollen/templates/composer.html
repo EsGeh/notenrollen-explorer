@@ -4,12 +4,46 @@
 <head>
 <meta charset="UTF-8">
 <title>Der Komponist</title>
-<link rel="stylesheet" type="text/css" href="{% static "index.css" %} "/>
+<link rel="stylesheet" type="text/css" href="{% static "composer.css" %} "/>
 </head>
 <body>
-
 	
+<div id="box" class="box">
+   <div class="infobox">
+      <div class="composer_name">
+         <h2 style="color: #8b795e; style="font-weight: bold;">Name</h2>
+         {{details.name}}
+      </div>
+      <div class="composer_gender">
+         <h2 style="color: #8b795e; style="font-weight: bold;">Geschlecht</h2>
+         {{details.gender}}
+      </div>
+      <div class="composer_birth">
+         <h2 style="color: #8b795e; style="font-weight: bold;">Geboren</h2>
+         {{details.birth}}
+      </div>
+      <div class="composer_death">
+         <h2 style="color: #8b795e; style="font-weight: bold;">Gestorben</h2>
+         {{details.death}}
+      </div>
+      <div class="composer_birthplace">
+         <h2 style="color: #8b795e; style="font-weight: bold;">Geburtsort</h2>
+         {{details.birthplace}}
+      </div>
+      <div class="composer_deathplace">
+         <h2 style="color: #8b795e; style="font-weight: bold;">Sterbeort</h2>
+         {{details.deathplace}}
+      </div>
+      <div class="composer_description">
+         <h2 style="color: #8b795e; style="font-weight: bold;">Beschreibung</h2>
+         {{details.description}}
+      </div>
 
+   </div>
+   <div class="composer_image">
+	<img src="{{details.thumbnail}}">
+   </div>
+</div>
 
 
 

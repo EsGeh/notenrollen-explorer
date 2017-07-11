@@ -1,0 +1,153 @@
+body, html {
+	background: url('images/piano-instrument-music-keys-159420.jpeg') no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+
+#box {
+	
+	position: absolute;
+
+	left: 0%;
+	min-width: 100%;
+	top: 0%;
+	min-height: 100%;
+	
+	background-color: rgba(0, 0, 0, 0.7);
+	
+	font-size: 12px;
+	color: #ffdead;
+	
+}
+
+.infobox {
+
+	left: 0%;
+	min-width: 50%;
+	top: 0%;
+	min-height: 100%;
+
+}
+
+
+
+.composer_name {
+	
+	position: absolute;
+	
+	left: 10%;
+	width: 20%;
+	
+	top: 10%;
+	height: 20%;
+
+	font-size: 12px;
+        color: #ffdead;
+	
+}
+
+.composer_gender {
+
+        position: absolute;
+
+        left: 30%;
+        width: 20%;
+        
+        top: 10%;
+        height: 20%;
+
+        font-size: 12px;
+        color: #ffdead;
+
+}
+
+.composer_birth {
+
+        position: absolute;
+
+        left: 10%;
+        width: 20%;
+        
+        top: 30%;
+        height: 15%;
+
+        font-size: 12px;
+        color: #ffdead;
+
+}
+
+.composer_death {
+
+        position: absolute;
+
+        left: 30%;
+        width: 20%;
+        
+        top: 30%;
+        height: 15%;
+
+        font-size: 12px;
+        color: #ffdead;
+
+}
+
+.composer_birthplace {
+
+        position: absolute;
+
+        left: 10%;
+        width: 20%;
+
+        top: 45%;
+        height: 20%;
+
+        font-size: 12px;
+        color: #ffdead;
+
+}
+
+.composer_deathplace {
+
+        position: absolute;
+
+        left: 30%;
+        width: 20%;
+
+        top: 45%;
+        height: 20%;
+
+        font-size: 12px;
+        color: #ffdead;
+
+}
+
+.composer_description {
+
+        position: absolute;
+
+        left: 10%;
+        width: 40%;
+
+        top: 65%;
+        height: 25%;
+
+        font-size: 12px;
+        color: #ffdead;
+
+}
+
+.composer_image {
+
+        position: absolute;
+
+        left: 60%;
+        width: 30%;
+
+        top: 10%;
+        height: 80%;
+
+
+}
+
