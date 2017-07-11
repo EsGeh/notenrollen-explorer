@@ -5,7 +5,8 @@ def dbp_request(search_term):
     with open('composer_request.sparql' ,'r') as f:
         query = f.read()
 
-    query = query.replace("SEARCH_TERM", search_term)
+    surname = re.match("^\w+[-\s]*\w*", search_term).group(0)
+    query = query.replace("SEARCH_TERM", surname)
 
     sparql = SPARQLWrapper("http://dbpedia.org/sparql")
     sparql.setQuery(query)
