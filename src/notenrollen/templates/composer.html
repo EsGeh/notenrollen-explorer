@@ -9,7 +9,10 @@
 <body>
 	
 <div id="box" class="box">
-   <div class="infobox">
+	<div class="infobox">
+		{% if not details %}
+			<p> no information for this composer </p>
+		{% else %}
       <div class="composer_name">
          <h2 style="color: #8b795e; style="font-weight: bold;">Name</h2>
          {{details.name}}
@@ -42,6 +45,7 @@
    </div>
    <div class="composer_image">
 	<img src="{{details.thumbnail}}">
+		{% endif %}
    </div>
 </div>
 

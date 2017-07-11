@@ -32,13 +32,15 @@
 						<td>{% if entry.instrument is None %} unknown {%else%} {{entry.instrument}} {% endif %} </td>
 
 						<td>
+
 							{% if not entry.composer %}
 								unknown
 							{%else%}
 								{% for composer in entry.composer %}
-									<p> {{composer}} </p>
+									<a href = "{% url 'composer' name=composer %}">{{composer}}</a>
 								{% endfor %}
 							{% endif %}
+
 						</td>
 						<td>
 							{% if not entry.interpreter %}

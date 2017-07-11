@@ -76,7 +76,6 @@ def search_database(request, **args):
 
 def composer(composer_name, **args):
     name = args['name']
-    # name = composer_name.GET.get("name")
     dbpedia_data = dbpedia_request.dbp_request(name)
     composer_details = dbpedia_response_to_dict(dbpedia_data)
     context = {"details": composer_details}
@@ -173,37 +172,20 @@ def dbpedia_response_to_dict(dbpedia_response):
 
     ns = {"d":"http://www.w3.org/2005/sparql-results#", "xsi":"http://www.w3.org/2001/XMLSchema-instance"}
 
-    try:
-        entry['name'] = xml.xpath("d:results/d:result/d:binding[@name=\"name\"]/d:literal/text()", namespaces=ns)[0]
-    except IndexError as e:
-        print(e)
-    try:
-        entry['gender'] = xml.xpath("d:results/d:result/d:binding[@name=\"gender\"]/d:literal/text()", namespaces=ns)[0]
-    except IndexError as e:
-        print(e)
-    try:
-        entry['birth'] = xml.xpath("d:results/d:result/d:binding[@name=\"birth\"]/d:literal/text()", namespaces=ns)[0]
-    except IndexError as e:
-        print(e)
-    try:
-        entry['death'] = xml.xpath("d:results/d:result/d:binding[@name=\"death\"]/d:literal/text()", namespaces=ns)[0]
-    except IndexError as e:
-        print(e)
-    try:
-        entry['birthplace'] = xml.xpath("d:results/d:result/d:binding[@name=\"birthplace\"]/d:literal/text()", namespaces=ns)[0]
-    except IndexError as e:
-        print(e)
-    try:
-        entry['deathplace'] = xml.xpath("d:results/d:result/d:binding[@name=\"deathplace\"]/d:literal/text()", namespaces=ns)[0]
-    except IndexError as e:
-        print(e)
-    try:
-        entry['description'] = xml.xpath("d:results/d:result/d:binding[@name=\"description\"]/d:literal/text()", namespaces=ns)[0]
-    except IndexError as e:
-        print(e)
-    try:
-        entry['thumbnail'] = xml.xpath("d:results/d:result/d:binding[@name=\"thumbnail\"]/d:literal/text()", namespaces=ns)[0]
-    except IndexError as e:
-        print(e)
+    results = xml.findall("d:results", namespaces=ns)
+    if len(results[0]) == 0:
+        return None
+    else:
+        result = results[0]
+        print( len( results ) )
+        print( etree.tostring( result ) )
+        entry['name'] = result.xpath("d:result/d:binding[@name=\"name\"]/d:literal/text()", namespaces=ns)[0]
+        entry['gender'] = result.xpath("d:result/d:binding[@name=\"gender\"]/d:literal/text()", namespaces=ns)[0]
+        entry['birth'] = result.xpath("d:result/d:binding[@name=\"birth\"]/d:literal/text()", namespaces=ns)[0]
+        entry['death'] = result.xpath("d:result/d:binding[@name=\"death\"]/d:literal/text()", namespaces=ns)[0]
+        entry['birthplace'] = result.xpath("d:result/d:binding[@name=\"birthplace\"]/d:literal/text()", namespaces=ns)[0]
+        entry['deathplace'] = result.xpath("d:result/d:binding[@name=\"deathplace\"]/d:literal/text()", namespaces=ns)[0]
+        entry['description'] = result.xpath("d:result/d:binding[@name=\"description\"]/d:literal/text()", namespaces=ns)[0]
+        entry['thumbnail'] = result.xpath("d:result/d:binding[@name=\"thumbnail\"]/d:literal/text()", namespaces=ns)[0]
 
     return entry
