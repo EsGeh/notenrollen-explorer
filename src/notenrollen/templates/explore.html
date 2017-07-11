@@ -50,39 +50,57 @@
 	<div class="infobox">
 	
 		<span class="infobox_title">
-			<h4 style="font-weight: bold;">{{entry.title}}</h4>
+			<h4 style="font-weight: bold;">{% if entry.title is None %} "unknown" {%else%} {{entry.title}} {% endif %}</h4>
 		</span>
 		
 		<div class="infobox_type_instrument">
 			<div class="infobox_type">
 				<h3 style="color: #8b795e; font-weight: bold;">Typ</h3>
-				{{entry.type}}
+				{% if entry.type is None %} "unknown" {%else%} {{entry.type}} {% endif %}
 			</div>
 			<div class="infobox_instrument">
 				<h3 style="color: #8b795e; font-weight: bold;">Instrument</h3>
-				{{entry.instrument}}
+				{% if entry.instrument is None %} "unknown" {%else%} {{entry.instrument}} {% endif %}
 			</div>
 		</div>
 		
 		<div class="infobox_description">
 			<h3 style="color: #8b795e; font-weight: bold;">Beschreibung</h3>
-			{{entry.description}}
+				{% if entry.description is None %} "unknown" {%else%} {{entry.description}} {% endif %}
 		</div>
 		
 		<div class="infobox_hersteller">
 			<h3 style="color: #8b795e; font-weight: bold;">Hersteller</h3>
-			{{entry.hersteller}}
+				{% if not entry.hersteller %}
+					unknown
+				{%else%}
+					{% for e in entry.hersteller %}
+						<p> {{e}} </p>
+					{% endfor %}
+				{% endif %}
 		</div>
 		
 		<div class="infobox_komponist_interpret">
 			<div class="infobox_komponist">
 				<h3  style="color: #8b795e; font-weight: bold;">Komponist</h3>
-					<a href = "{% url 'composer' name=entry.composer %}">{{entry.composer}}</a>
+					{% if entry.composer is None %}
+						unknown
+					{%else%}
+						{% for composer in entry.composer %}
+							<a href = "{% url 'composer' name=composer %}">{{composer}}</a>
+						{% endfor %}
+					{% endif %}
 			</div>
 			
 			<div class="infobox_interpret">
 				<h3 style="color: #8b795e; font-weight: bold;">Interpret</h3>
-				{{entry.interpreter}}
+				{% if not entry.interpreter %}
+					unknown
+				{%else%}
+					{% for e in entry.interpreter %}
+						<p> {{e}} </p>
+					{% endfor %}
+				{% endif %}
 			</div>
 		</div>
 	

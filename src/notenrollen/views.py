@@ -95,24 +95,26 @@ def xml_object_to_python_dict(xml_object):
     if objectID is not None:
         strObjectID = objectID.text
     else:
-        strObjectID = "unknown"
+        strObjectID = None
     title = xml_object.find("descriptiveMetadata/title")
     if title is not None:
         strTitle = title.text
     else:
-        strTitle = "unknown"
+        strTitle = None
     instrument = xml_object.find("descriptiveMetadata/instrument")
     if instrument is not None:
         strInstrument = instrument.text
-    else: strInstrument = "unknown"
+    else: strInstrument = None
+    '''
     composer = xml_object.find("actors/Komponist")
     if composer is not None:
         strComposer = composer.text
-    else: strComposer = "unknown"
+    else: strComposer = None
     interpreter = xml_object.find("actors/Interpret")
     if interpreter is not None:
         strInterpreter = interpreter.text
-    else: strInterpreter = "unknown"
+    else: strInterpreter = None
+    '''
 
     type = xml_object.find("descriptiveMetadata/objectType")
     if type is not None:
@@ -132,24 +134,17 @@ def xml_object_to_python_dict(xml_object):
     else: strDescription = "unknown"
 
     actors = xml_object.find("actors")
-    strHersteller = ""
-    strKomponist = ""
-    strInterpret = ""
+    hersteller = []
+    composers = []
+    interpreters = []
     if actors is not None:
         for actor in actors:
             if(actor.tag == "Hersteller"):
-                strHersteller = strHersteller + actor.text + "\n"
+                hersteller.append( actor.text )
             if(actor.tag == "Komponist"):
-                strKomponist = strKomponist + actor.text + "\n"
+                composers.append( actor.text )
             if(actor.tag == "Interpret"):
-                strInterpret = strInterpret + actor.text + "\n"
-
-        if strHersteller == "":
-            strHersteller = "unknown"
-        if strKomponist == "":
-            strKomponist = "unknown"
-        if strInterpret == "":
-            strInterpret = "unknown"
+                interpreters.append( actor.text )
 
     objectData = xml_object.find("objectData")
     images = []
@@ -160,14 +155,12 @@ def xml_object_to_python_dict(xml_object):
     entry["objectID"] = strObjectID
     entry["title"] = strTitle
     entry["instrument"] = strInstrument
-    entry["composer"] = strKomponist
-    # entry["composer"] = composer
-    entry["interpreter"] = strInterpret
-    # entry["interpreter"] = interpreter
+    entry["composer"] = composers
+    entry["interpreter"] = interpreters
 
     entry["type"] = strType
     entry["description"] = strDescription
-    entry["hersteller"] = strHersteller
+    entry["hersteller"] = hersteller
     entry["images"] = images
 
     return entry
