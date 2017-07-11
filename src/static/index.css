@@ -1,52 +1,64 @@
 /* Set height to 100% for body and html to enable the background image to cover the whole page: */
 body, html {
 	background: url('images/piano-instrument-music-keys-159420.jpeg') no-repeat center center fixed; 
-  	-webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	-o-background-size: cover;
-  	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	/*position: relative; */
+	width: 100%;
+	height: 100%;
+}
+
+#spacer {
+	width: 100%;
+	height: 60%;
 }
 
 #title {
-	
-	position: absolute;
-	top: 60%;
-	left: 0%;
-	width: 100%;
 	text-align: center;
 	font-weight: bold;
 	font-size: 100px; /* Increase font size */
     color: #ffdead;
-	
 }
 
 #menubox {
 	
-	position: absolute;
 	background-color: rgba(0, 0, 0, 0.7);
-	left: 0%;
 	width: 100%;
-	top: 80%;
 	height: 10%;
-	
+	position: relative;
 }
 
-/* Position text in the middle */
+/*
 #menu a {
 	
 	display: inline-block;
-    position: absolute; /* Position them relative to the browser window */
-    transition: 0.3s; /* Add transition on hover */
-    padding: 15px; /* 15px padding */
+    position: absolute; # Position them relative to the browser window 
+    transition: 0.3s; # Add transition on hover
+    padding: 15px; # 15px padding
     vertical-align: middle;
     font-weight: bold;
-    font-size: 40px; /* Increase font size */
-    color: #8b795e /* White text color */
+    font-size: 40px; # Increase font size
+    color: #8b795e # White text color 
+}
+*/
+
+.menuitem {
+	display: inline-block;
+	transition: 0.3s;
+	padding: 15px;
+	vertical-align: middle;
+	font-weight: bold;
+	font-size: 40px;
+	color: #8b795e;
+	width: 30%;
 }
 
-#menu a:hover {
+#menubox a:hover {
     color: white;
 }
+/*
 
 #explore {
     left: 5%;
@@ -64,8 +76,11 @@ body, html {
     left: 80%;
 }
 
-/* Style the <hr> element */
+*/
+
+/* Style the <hr> element
 hr {
     margin: auto;
     width: 100%;
 }
+*/

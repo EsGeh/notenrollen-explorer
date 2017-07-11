@@ -38,6 +38,10 @@ def player(request, **args):
     context = {}
     return render(request, "player.html", context )
 
+def impressum(request, **args):
+    context = {}
+    return render(request, "impressum.html", context )
+
 def search(request, **args):
     if not "keyword" in request.GET:
         # print( "no keyword" )
