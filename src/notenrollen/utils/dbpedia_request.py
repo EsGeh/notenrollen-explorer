@@ -1,8 +1,11 @@
+from ..settings import BASE_DIR
+
 def dbp_request(search_term):
     from SPARQLWrapper import SPARQLWrapper
     import re
+    import os.path
 
-    with open('composer_request.sparql' ,'r') as f:
+    with open(os.path.join(BASE_DIR, "notenrollen", "utils", 'composer_request.sparql') ,'r') as f:
         query = f.read()
 
     query = query.replace("SEARCH_TERM", search_term)

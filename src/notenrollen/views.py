@@ -74,7 +74,8 @@ def search_database(request, **args):
 
 
 def composer(composer_name, **args):
-    name = composer_name.GET.get("name")
+    name = args['name']
+    # name = composer_name.GET.get("name")
     dbpedia_data = dbpedia_request.dbp_request(name)
     composer_details = dbpedia_response_to_dict(dbpedia_data)
     context = {"details": composer_details}
@@ -173,8 +174,9 @@ def xml_object_to_python_dict(xml_object):
 
 
 def dbpedia_response_to_dict(dbpedia_response):
+    from lxml import etree
     entry = {}
-    xml = etree.XML(xml_object)
+    xml = etree.XML(dbpedia_response)
 
     ns = {"d":"http://www.w3.org/2005/sparql-results#", "xsi":"http://www.w3.org/2001/XMLSchema-instance"}
 
