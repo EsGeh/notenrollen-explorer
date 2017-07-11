@@ -104,16 +104,6 @@ def xml_object_to_python_dict(xml_object):
     if instrument is not None:
         strInstrument = instrument.text
     else: strInstrument = None
-    '''
-    composer = xml_object.find("actors/Komponist")
-    if composer is not None:
-        strComposer = composer.text
-    else: strComposer = None
-    interpreter = xml_object.find("actors/Interpret")
-    if interpreter is not None:
-        strInterpreter = interpreter.text
-    else: strInterpreter = None
-    '''
 
     type = xml_object.find("descriptiveMetadata/objectType")
     if type is not None:
@@ -148,7 +138,7 @@ def xml_object_to_python_dict(xml_object):
     objectData = xml_object.find("objectData")
     images = []
     for image in objectData:
-        print(image.text)
+        # print(image.text)
         images.append(image.text)
 
     entry["objectID"] = strObjectID
@@ -177,8 +167,6 @@ def dbpedia_response_to_dict(dbpedia_response):
         return None
     else:
         result = results[0]
-        print( len( results ) )
-        print( etree.tostring( result ) )
         entry['name'] = result.xpath("d:result/d:binding[@name=\"name\"]/d:literal/text()", namespaces=ns)[0]
         entry['gender'] = result.xpath("d:result/d:binding[@name=\"gender\"]/d:literal/text()", namespaces=ns)[0]
         entry['birth'] = result.xpath("d:result/d:binding[@name=\"birth\"]/d:literal/text()", namespaces=ns)[0]

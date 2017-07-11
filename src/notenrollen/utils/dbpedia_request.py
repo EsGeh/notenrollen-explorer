@@ -16,7 +16,7 @@ def dbp_request(search_term):
     try :
        result = sparql.query()
     except:
-       print("request failed")
+       print("dbpedia request failed")
 
     xml=""
     for line in result:
