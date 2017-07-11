@@ -5,6 +5,7 @@ from django.shortcuts import render
 # from django.template.loader import render_to_string
 
 from .utils import database, dbpedia_request
+from lxml import etree
 
 
 def index_page(request, **args):
@@ -87,7 +88,6 @@ def composer(composer_name, **args):
 ################################################
 
 def xml_object_to_python_dict(xml_object):
-    from lxml import etree
     entry = {}
     
     objectID = xml_object.find("descriptiveMetadata/objectID")
