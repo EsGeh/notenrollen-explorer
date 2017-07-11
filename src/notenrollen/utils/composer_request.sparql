@@ -23,7 +23,8 @@ WHERE {
           dbo:deathDate ?death_pre;
           dbo:birthPlace ?birthplace_property;
           dbo:deathPlace ?deathplace_property;
-          dct:description ?description_pre;
+          rdfs:comment ?description_pre;
+	  #dct:description ?description_pre;
           dbo:thumbnail ?thumbnail_pre.
           ?deathplace_property rdfs:label ?deathplace_pre.		#get deathplace label 
           ?birthplace_property rdfs:label ?birthplace_pre.		#get birthplace label

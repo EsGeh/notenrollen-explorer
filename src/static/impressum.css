@@ -11,12 +11,21 @@ body, html {
 }
 
 body {
-	color: black;
+	color: #ffdead;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
 	text-align: center;
+	color: #ffdead;
 }
+
+h4, h5, h6 {
+        text-align: left;
+        color: #ffdead;
+	margin-top: 30px;
+ 	margin-bottom: 10px;
+}
+
 
 h1 { font-size: 6em; }
 h2 { font-size: 5em; }
