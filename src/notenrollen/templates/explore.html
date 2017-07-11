@@ -76,8 +76,8 @@
 		
 		<div class="infobox_komponist_interpret">
 			<div class="infobox_komponist">
-				<h3 style="color: #8b795e; font-weight: bold;">Komponist</h3>
-				{{entry.composer}}
+				<h3  style="color: #8b795e; font-weight: bold;">Komponist</h3>
+				<a href = "{% url 'explore' %}?name={{entry.composer}}">{{entry.composer}}</a>
 			</div>
 			
 			<div class="infobox_interpret">

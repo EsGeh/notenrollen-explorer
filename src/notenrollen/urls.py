@@ -28,6 +28,8 @@ urlpatterns = [
     url(r'^explore$', views.explore, name="explore"),
     url(r'^search$', views.search, name="search"),
     url(r'^player$', views.player, name="player"),
+    url(r'^composer?(?P<name>[\s\S].*)$', views.composer, name="composer"),
+
 
     # url(r'^quiz$', views.quiz, name="quiz"),
 
