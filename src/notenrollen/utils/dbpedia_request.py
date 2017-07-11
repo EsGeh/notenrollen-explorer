@@ -19,12 +19,7 @@ def dbp_request(search_term):
        print("request failed")
 
     xml=""
-
     for line in result:
-        xml+=str(line)
-
-    #clean xml from control sequences 
-    #dirty hack since sub ignores escaped special chars by some reason
-    xml=re.sub("^b'|'$","",xml).replace("\\n'b'","")
+        xml += line.decode('utf-8')
 
     return xml
