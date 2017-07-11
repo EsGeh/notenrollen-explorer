@@ -73,9 +73,13 @@ def search_database(request, **args):
     return HttpResponse(xmldata, content_type='application/xml')
 
 
-def composer_details(composer_name, **args):
-    dbpedia_data = dbpedia_request.dbp_request(composer_name)
-    return dbpedia_response_to_dict(dbpedia_data)
+def composer(composer_name, **args):
+    name = composer_name.GET.get("name")
+    dbpedia_data = dbpedia_request.dbp_request(name)
+    composer_details = dbpedia_response_to_dict(dbpedia_data)
+    context = {"details": composer_details}
+    return render(composer_name, "composer.html", context )
+
 
 
 ################################################
