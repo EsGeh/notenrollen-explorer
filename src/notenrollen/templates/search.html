@@ -15,47 +15,48 @@
 		<input name="keyword" placeholder="Suche..."/>
 	  <button type="submit" id="search">Los</button>
 	</form>
-	  <div ng-controller="SearchController as searchCtrl">
-		  <table class="table table-hover">
-		    	<thead>
-		      		<tr>
-				      	<th>Titel</th>
-				        <th>Instrument</th>
-				        <th>Komponist</th>
-				        <th>Interpret</th>
-		     		 </tr>
-		    </thead>
-		    <tbody>
-					{% for entry in search_entries %}
-		      <tr onclick="document.location = '{% url 'explore' %}?objectID={{entry.objectID}}';" ng-repeat="notenrolle in searchCtrl.notenrollen">
-						<td>{% if entry.title is None %} unknown {%else%} {{entry.title}} {% endif %} </td>
-						<td>{% if entry.instrument is None %} unknown {%else%} {{entry.instrument}} {% endif %} </td>
+	<div ng-controller="SearchController as searchCtrl">
+		<p> {{ search_entries|length }} objects found </p>
+		<table class="table table-hover">
+				<thead>
+						<tr>
+							<th>Titel</th>
+							<th>Instrument</th>
+							<th>Komponist</th>
+							<th>Interpret</th>
+					 </tr>
+			</thead>
+			<tbody>
+				{% for entry in search_entries %}
+				<tr onclick="document.location = '{% url 'explore' %}?objectID={{entry.objectID}}';" ng-repeat="notenrolle in searchCtrl.notenrollen">
+					<td>{% if entry.title is None %} unknown {%else%} {{entry.title}} {% endif %} </td>
+					<td>{% if entry.instrument is None %} unknown {%else%} {{entry.instrument}} {% endif %} </td>
 
-						<td>
+					<td>
 
-							{% if not entry.composer %}
-								unknown
-							{%else%}
-								{% for composer in entry.composer %}
-									<a href = "{% url 'composer' name=composer %}">{{composer}}</a>
-								{% endfor %}
-							{% endif %}
+						{% if not entry.composer %}
+							unknown
+						{%else%}
+							{% for composer in entry.composer %}
+								<a href = "{% url 'composer' name=composer %}">{{composer}}</a>
+							{% endfor %}
+						{% endif %}
 
-						</td>
-						<td>
-							{% if not entry.interpreter %}
-								unknown
-							{%else%}
-								{% for e in entry.interpreter %}
-									<p> {{e}} </p>
-								{% endfor %}
-							{% endif %}
-						</td>
-					</tr>
-					{% endfor %}
-		    </tbody>
-		  </table>
-		</div>
+					</td>
+					<td>
+						{% if not entry.interpreter %}
+							unknown
+						{%else%}
+							{% for e in entry.interpreter %}
+								<p> {{e}} </p>
+							{% endfor %}
+						{% endif %}
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
 </div>
 
 </body>

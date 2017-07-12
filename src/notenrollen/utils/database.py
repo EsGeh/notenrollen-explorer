@@ -10,9 +10,7 @@ basex_uri = "http://basex:8984"
 login_data = "YWRtaW46YWRtaW4="
 
 def search(keyword):
-    #return search_by_xpath("//text()[contains(.,'{term}')]/ancestor::object".format(term=keyword))
      return search_by_xpath("//(descriptiveMetadata|actors)//*[matches(text(),'{term}','i')]/ancestor::object".format(term=keyword))
-
 
 def list_entries(entries_per_page, page):
     xpath_expr = \
@@ -21,7 +19,9 @@ def list_entries(entries_per_page, page):
     # print( xpath_expr )
     return search_by_xpath(xpath_expr)
 
-
+def get_object_by_id(obj_id):
+    print( "get_object_by_id {}".format( obj_id ) )
+    return search_by_xpath("//notenrollen/object[@id='{obj_id}']".format(obj_id=obj_id))
 
 def search_by_xpath(xpath_expr):
     import requests as httplib

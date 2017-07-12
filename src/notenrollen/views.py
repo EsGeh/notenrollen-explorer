@@ -15,12 +15,16 @@ def index_page(request, **args):
 def explore(request, **args):
 
     objectID = request.GET.get("objectID")
-    xml_data = database.search(objectID)
+    xml_data = database.get_object_by_id(objectID)
+    # xml_data = database.search(objectID)
 
     # xml to python:
     from lxml import etree
     # the dummy "root" element is necessary for valid xml:
     source_xml = etree.XML( "<root>" + xml_data + "</root>" )
+    print( "******************")
+    print( "explore {}" )
+    print( "returned objects {}".format( etree.tostring( source_xml, pretty_print=True, encoding="unicode") ) ) 
 
     entry = {}
     if len(source_xml) == 0:
@@ -56,6 +60,9 @@ def search(request, **args):
     from lxml import etree
     # the dummy "root" element is necessary for valid xml:
     source_xml = etree.XML( "<root>" + xml_data + "</root>" )
+    print( "******************")
+    print( "search" )
+    print( "returned objects {}".format( etree.tostring( source_xml, pretty_print=True, encoding="unicode") ) ) 
     search_entries = []
     for xml_object in source_xml:
         entry = xml_object_to_python_dict(xml_object)
