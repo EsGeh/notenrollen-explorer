@@ -104,7 +104,7 @@ If you changed the Dockerfile (e.g. added dependencies), you might want to updat
 		$ docker container run -p 8000:8000 --link db:db -d notenrollenexplorer_web python manage.py runserver 0.0.0.0:8000
 
 
-##BaseX documentation
+## BaseX documentation
 
 general:
 http://docs.basex.org/wiki/Commands
